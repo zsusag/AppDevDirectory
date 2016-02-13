@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mSwitchActivityButton=(Button) findViewById(R.id.switchActivityButton);
+        mSwitchActivityButton = (Button) findViewById(R.id.switchActivityButton);
         final Intent intent = new Intent(this, ProfileActivity.class);
         mSwitchActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
