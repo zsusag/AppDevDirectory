@@ -14,7 +14,6 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button mSwitchActivityButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +28,5 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
     }}
