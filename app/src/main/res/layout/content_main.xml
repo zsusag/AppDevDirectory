@@ -12,12 +12,13 @@
     tools:context="edu.appdev.appdevdirectory.MainActivity"
     tools:showIn="@layout/activity_main"
     android:scrollIndicators="right"
-    android:nestedScrollingEnabled="false">
+    android:nestedScrollingEnabled="false"
+    android:background="@color/abc_search_url_text_normal">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Switch Activity!"
+        android:text="View Profile"
         android:id="@+id/switchActivityButton"
         android:layout_marginBottom="34dp"
         android:layout_alignParentBottom="true"
