@@ -9,7 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,5 +34,16 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        // Set up listView with adapters
+        String[] names = {"hello", "world", "test", "hello", "world", "test", "hello", "world", "test", "hello", "world", "test", "hello", "world", "test"};
+        List listA = new ArrayList();
+        listA.add("element 1");
+        listA.add("element 2");
+        listA.add("element 3");
+        //ListAdapter profileAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
+        ProfileAdapter profileAdapter = new ProfileAdapter(this, android.R.layout.simple_list_item_1, listA);
+        ListView profilesView = (ListView) findViewById(R.id.profilesListView);
+        profilesView.setAdapter(profileAdapter);
 
     }}
