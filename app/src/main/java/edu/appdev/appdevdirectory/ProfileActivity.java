@@ -9,6 +9,7 @@ import android.widget.Button;
 public class ProfileActivity extends AppCompatActivity {
 
     private Button mBackButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,4 +30,10 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+    }
+
 }
