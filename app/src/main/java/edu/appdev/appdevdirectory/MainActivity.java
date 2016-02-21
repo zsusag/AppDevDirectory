@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,9 +78,12 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            System.out.println(result);
+            try {
+                JSONObject mainObject = new JSONObject(result);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
-
 
 }
