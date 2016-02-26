@@ -8,17 +8,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ProfileAdapter extends ArrayAdapter {
 
-    private List mData;
+    private ArrayList<HashMap<String, String>> mData;
     private TextView mNameText;
     private ImageView mProfileImage;
 
 
-    public ProfileAdapter(Context context, int resource, List objects) {
-        super(context, resource, objects);
+    public ProfileAdapter(Context context, int resource, ArrayList<HashMap<String, String>> objects){
+        super(context, resource);
         this.mData = objects;
     }
 

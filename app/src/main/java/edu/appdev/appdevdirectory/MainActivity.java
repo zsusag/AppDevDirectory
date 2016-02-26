@@ -1,25 +1,24 @@
 package edu.appdev.appdevdirectory;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+    ArrayList<HashMap<String, String>> memberList;
 
     String getStringFromURL(String url) throws IOException {
         OkHttpClient client = new OkHttpClient();
@@ -41,16 +40,16 @@ public class MainActivity extends AppCompatActivity {
         new DownloadFilesTask().execute();
 
         // listView and ProfileAdapter adapters
-        List profiles = new ArrayList();
-        profiles.add("Larry");
-        profiles.add("Sam");
-        profiles.add("Bob");
-        ProfileAdapter profileAdapter = new ProfileAdapter(this, android.R.layout.simple_list_item_1, profiles);
-        ListView profilesView = (ListView) findViewById(R.id.profilesListView);
-        profilesView.setAdapter(profileAdapter);
+        //List profiles = new ArrayList();
+        //profiles.add("Larry");
+        //profiles.add("Sam");
+        //profiles.add("Bob");
+        //ProfileAdapter profileAdapter = new ProfileAdapter(this, android.R.layout.simple_list_item_1, profiles);
+        //ListView profilesView = (ListView) findViewById(R.id.profilesListView);
+        //profilesView.setAdapter(profileAdapter);
 
         // View list item
-        final Intent intent = new Intent(this, ProfileActivity.class);
+        /*final Intent intent = new Intent(this, ProfileActivity.class);
         profilesView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
@@ -58,32 +57,53 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }
-        );
+        ); */
 
     }
 
     // Download URL
-    class DownloadFilesTask extends AsyncTask<Void, Void, String> {
+    class DownloadFilesTask extends AsyncTask<Void, Void, Void> {
 
         @Override
-        protected String doInBackground(Void... params) {
+        protected Void doInBackground(Void... params) {
             String s = "";
             try {
                 s = getStringFromURL("http://www.cs.grinnell.edu/~pradhanp/android.json");
+                JSONObject mainObject = new JSONObject(s);
+                JSONArray members = mainObject.getJSONArray("members");
+                for(int i=0;i<members.length();i++) {
+                    HashMap<String, String> member = new HashMap<String, String>();
+                    JSONObject c = members.getJSONObject(i);
+                    member.put("category", c.getString("category"));
+                    member.put("name", c.getString("name"));
+                    member.put("year", c.getString("year"));
+                    member.put("role", c.getString("role"));
+                    member.put("cellphone", c.getString("cellphone"));
+                    member.put("email", c.getString("email"));
+                    member.put("image", c.getString("image"));
+                    member.put("giturl", c.getString("giturl"));
+                    member.put("twitterurl", c.getString("twitterurl"));
+                    member.put("homepageurl", c.getString("homepageurl"));
+                    member.put("linkedurl", c.getString("linkedurl"));
+
+                    memberList.add(member);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return s;
+
+            return null;
         }
 
         @Override
-        protected void onPostExecute(String result) {
-            try {
-                JSONObject mainObject = new JSONObject(result);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+            ProfileAdapter profileAdapter = new ProfileAdapter(MainActivity.this, android.R.layout.simple_list_item_1, memberList);
+
             }
         }
     }
 
-}
