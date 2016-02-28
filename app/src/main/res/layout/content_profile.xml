@@ -65,8 +65,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Major:"
-                android:id="@+id/profMajorTextView"
+                android:text="Year:"
+                android:id="@+id/profYearTextView"
                 android:layout_column="0"
                 android:layout_weight="1" />
 
