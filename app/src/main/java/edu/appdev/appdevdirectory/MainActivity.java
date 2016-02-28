@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                     HashMap<String, String> member = memberList.get(position);
-                    Intent intent = new Intent();
+                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                     intent.putExtra("member", member);
                     startActivity(intent);
                 }
