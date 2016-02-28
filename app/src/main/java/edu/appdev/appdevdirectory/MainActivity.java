@@ -41,28 +41,6 @@ public class MainActivity extends AppCompatActivity {
         // JSON
         new DownloadFilesTask().execute();
 
-        //ArrayList<HashMap<String, String>> profiles = new ArrayList();
-        //ProfileAdapter profileAdapter = new ProfileAdapter(MainActivity.this, android.R.layout.simple_list_item_1, profiles);
-        // listView and ProfileAdapter adapters
-        //List profiles = new ArrayList();
-        //profiles.add("Larry");
-        //profiles.add("Sam");
-        //profiles.add("Bob");
-        //ProfileAdapter profileAdapter = new ProfileAdapter(this, android.R.layout.simple_list_item_1, profiles);
-        //ListView profilesView = (ListView) findViewById(R.id.profilesListView);
-        //profilesView.setAdapter(profileAdapter);
-
-        // View list item
-        /*final Intent intent = new Intent(this, ProfileActivity.class);
-        profilesView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        startActivity(intent);
-                    }
-                }
-        ); */
-
     }
 
     // Download URL
@@ -108,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             ProfileAdapter profileAdapter = new ProfileAdapter(MainActivity.this, android.R.layout.simple_list_item_1, memberList);
             ListView profilesView = (ListView) findViewById(R.id.profilesListView);
             profilesView.setAdapter(profileAdapter);
-
             }
         }
     }
