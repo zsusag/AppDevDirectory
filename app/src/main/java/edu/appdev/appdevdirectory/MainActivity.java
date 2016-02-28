@@ -3,6 +3,7 @@ package edu.appdev.appdevdirectory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,6 +12,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         // JSON
         new DownloadFilesTask().execute();
 
+        //ArrayList<HashMap<String, String>> profiles = new ArrayList();
+        //ProfileAdapter profileAdapter = new ProfileAdapter(MainActivity.this, android.R.layout.simple_list_item_1, profiles);
         // listView and ProfileAdapter adapters
         //List profiles = new ArrayList();
         //profiles.add("Larry");
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             String s = "";
+            memberList = new ArrayList();
             try {
                 s = getStringFromURL("http://www.cs.grinnell.edu/~pradhanp/android.json");
                 JSONObject mainObject = new JSONObject(s);
@@ -100,8 +105,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-
             ProfileAdapter profileAdapter = new ProfileAdapter(MainActivity.this, android.R.layout.simple_list_item_1, memberList);
+            ListView profilesView = (ListView) findViewById(R.id.profilesListView);
+            profilesView.setAdapter(profileAdapter);
 
             }
         }

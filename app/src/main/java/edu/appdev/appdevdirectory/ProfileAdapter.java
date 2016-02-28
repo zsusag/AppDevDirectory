@@ -39,8 +39,8 @@ public class ProfileAdapter extends ArrayAdapter {
         // Set data dynamically
         mNameText = (TextView) convertView.findViewById(R.id.nameTextView);
         mProfileImage = (ImageView) convertView.findViewById(R.id.profileImageView);
-        String item = getItem(position).toString();
-        mNameText.setText(item);
+        HashMap<String, String> item = mData.get(position);
+        mNameText.setText(item.get("name"));
         mProfileImage.setImageResource(R.drawable.larry);
 
         return convertView;
