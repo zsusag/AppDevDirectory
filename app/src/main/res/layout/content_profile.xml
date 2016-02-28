@@ -14,9 +14,9 @@
     android:background="@color/abc_search_url_text_normal">
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/imageView"
+        android:id="@+id/profImageView"
         android:src="@drawable/larry"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Name:"
-                android:id="@+id/textView"
+                android:id="@+id/profNameTextView"
                 android:layout_column="0"
                 android:layout_weight="1" />
 
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Facebook"
-                android:id="@+id/textView2"
+                android:id="@+id/profFacebookTextView"
                 android:layout_column="1"
                 android:layout_weight="1" />
 
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Major:"
-                android:id="@+id/textView3"
+                android:id="@+id/profMajorTextView"
                 android:layout_column="0"
                 android:layout_weight="1" />
 
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="LinkedIn"
-                android:id="@+id/textView4"
+                android:id="@+id/profLinkedTextView"
                 android:layout_column="1"
                 android:layout_weight="1" />
         </TableRow>
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Role:"
-                android:id="@+id/textView5"
+                android:id="@+id/profRoleTextView"
                 android:layout_column="0"
                 android:layout_weight="1" />
 
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="GitHub"
-                android:id="@+id/textView6"
+                android:id="@+id/profGitTextView"
                 android:layout_column="1"
                 android:layout_weight="1" />
         </TableRow>
