@@ -18,6 +18,7 @@ public class ProfileAdapter extends ArrayAdapter {
 
     private ArrayList<HashMap<String, String>> mData;
     private TextView mNameText;
+    private TextView mRoleText;
     private ImageView mProfileImage;
 
 
@@ -40,10 +41,12 @@ public class ProfileAdapter extends ArrayAdapter {
 
         // Set data dynamically
         mNameText = (TextView) convertView.findViewById(R.id.nameTextView);
+        mRoleText = (TextView) convertView.findViewById(R.id.roleTextView);
         mProfileImage = (ImageView) convertView.findViewById(R.id.profileImageView);
         HashMap<String, String> item = mData.get(position);
         String url = item.get("image");
         mNameText.setText(item.get("name"));
+        mRoleText.setText(item.get("role"));
         Picasso.with(getContext()).load(url).into(mProfileImage);
 
         return convertView;
