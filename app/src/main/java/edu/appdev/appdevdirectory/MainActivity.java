@@ -1,8 +1,11 @@
 package edu.appdev.appdevdirectory;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -40,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
         // JSON
         new DownloadFilesTask().execute();
-
     }
 
     // Download URL
@@ -86,6 +88,16 @@ public class MainActivity extends AppCompatActivity {
             ProfileAdapter profileAdapter = new ProfileAdapter(MainActivity.this, android.R.layout.simple_list_item_1, memberList);
             ListView profilesView = (ListView) findViewById(R.id.profilesListView);
             profilesView.setAdapter(profileAdapter);
+            profilesView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    HashMap<String, String> member = memberList.get(position);
+                    Intent intent = new Intent();
+                    intent.putExtra("member", member);
+                    startActivity(intent);
+                }
+            });
             }
         }
     }

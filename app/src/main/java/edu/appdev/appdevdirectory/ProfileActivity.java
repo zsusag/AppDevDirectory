@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.HashMap;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private Button mBackButton;
@@ -15,6 +17,9 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         mBackButton = (Button) findViewById(R.id.backButton);
+
+        // Dynamic data
+        HashMap<String, String> member = (HashMap) getIntent().getSerializableExtra("member");
 
         // Initialize intent
         final Intent intent = new Intent(this, ProfileActivity.class);
