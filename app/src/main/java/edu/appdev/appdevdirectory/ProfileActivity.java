@@ -95,7 +95,8 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         String url = member.get("image");
-        Picasso.with(getApplicationContext()).load(url).into(mPic);
+            Picasso.with(getApplicationContext()).load(url).placeholder(R.drawable.appdevlogo).into(mPic);
+
         // Initialize intent
         final Intent intent = new Intent(this, ProfileActivity.class);
 

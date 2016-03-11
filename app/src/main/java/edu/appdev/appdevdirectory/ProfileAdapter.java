@@ -46,7 +46,7 @@ public class ProfileAdapter extends ArrayAdapter {
         String url = item.get("image");
         mNameText.setText(item.get("name"));
         mRoleText.setText(item.get("role"));
-        Picasso.with(getContext()).load(url).into(mProfileImage);
+        Picasso.with(getContext()).load(url).placeholder(R.drawable.appdevlogo).into(mProfileImage);
 
         return convertView;
     }
