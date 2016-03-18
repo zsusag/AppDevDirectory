@@ -1,30 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="edu.appdev.appdevdirectory.ProfileActivity"
     tools:showIn="@layout/activity_profile"
-    android:background="@color/abc_search_url_text_normal">
+    android:background="#FFFFFF">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/profileToolbar"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:layout_above="@+id/profileImageView"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    </android.support.v7.widget.Toolbar>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:id="@+id/profImageView"
         android:src="@drawable/appdevlogo"
-        android:scaleType="fitCenter"/>
+        android:scaleType="fitCenter"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_below="@+id/profileToolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/profImageView"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="24dp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
 
         <LinearLayout
             android:orientation="vertical"
@@ -113,7 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/gitTextView"
-                android:text="2017"
+                android:text="GitHub"
                 android:textSize="18dp"
                 android:layout_marginBottom="8dp"/>
 
@@ -121,15 +142,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/twitterTextView"
-                android:text="2017"
+                android:text="Twitter"
                 android:textSize="18dp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp"
+                android:clickable="true" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/homeTextView"
-                android:text="2017"
+                android:text="Personal Website"
                 android:textSize="18dp"
                 android:layout_marginBottom="8dp"/>
 
@@ -137,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/linkedInTextView"
-                android:text="2017"
+                android:text="LinkedIn"
                 android:textSize="18dp"
                 android:layout_marginBottom="8dp"/>
 

@@ -1,5 +1,6 @@
 package edu.appdev.appdevdirectory;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -30,6 +32,8 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView mLinkedIn;
 
     private ImageView mPic;
+
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -40,10 +44,16 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.profileToolbar);
+        myToolbar.setTitle("");
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //mBackButton = (Button) findViewById(R.id.backButton);
 
+
+
         // Dynamic data
-        HashMap<String, String> member = (HashMap) getIntent().getSerializableExtra("member");
+        final HashMap<String, String> member = (HashMap) getIntent().getSerializableExtra("member");
         mName = (TextView) findViewById(R.id.profNameTextView);
         mRole = (TextView) findViewById(R.id.roleTextView);
         mYear = (TextView) findViewById(R.id.yearTextView);
@@ -61,36 +71,53 @@ public class ProfileActivity extends AppCompatActivity {
         mYear.setText(member.get("year"));
         //mCell.setText(member.get("cellphone"));
         mEmail.setText(member.get("email"));
-        mTwitter.setText(member.get("twitterurl"));
-        mGit.setText(member.get("giturl"));
-        mHome.setText(member.get("homepageurl"));
-        mLinkedIn.setText(member.get("linkedurl"));
         System.out.println(mTwitter.getText());
-        if (mTwitter.getText().equals("")) {
+        if (member.get("twitterurl").equals("")) {
             mTwitter.setVisibility(View.GONE);
         } else {
-            mTwitter.setText(member.get("twitterurl"));
+            mTwitter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToUrl(member.get("twitterurl"));
+                }
+            });
             mTwitter.setVisibility(View.VISIBLE);
+
         }
 
-        if (mGit.getText().equals("")) {
+        if (member.get("giturl").equals("")) {
             mGit.setVisibility(View.GONE);
         } else {
-            mGit.setText(member.get("giturl"));
+            mGit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToUrl(member.get("giturl"));
+                }
+            });
             mGit.setVisibility(View.VISIBLE);
         }
 
-        if (mHome.getText().equals("")) {
+        if (member.get("homepageurl").equals("")) {
             mHome.setVisibility(View.GONE);
         } else {
-            mHome.setText(member.get("homepageurl"));
+            mHome.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToUrl(member.get("homepageurl"));
+                }
+            });
             mHome.setVisibility(View.VISIBLE);
         }
 
-        if (mLinkedIn.getText().equals("")) {
+        if (member.get("linkedurl").equals("")) {
             mLinkedIn.setVisibility(View.GONE);
         } else {
-            mLinkedIn.setText(member.get("linkedurl"));
+            mLinkedIn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToUrl(member.get("linkedurl"));
+                }
+            });
             mLinkedIn.setVisibility(View.VISIBLE);
         }
 
@@ -130,6 +157,11 @@ public class ProfileActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.start(client, viewAction);
     }
 
+    private void goToUrl (String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
+    }
     @Override
     public void onStop() {
         super.onStop();
