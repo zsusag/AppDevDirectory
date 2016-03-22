@@ -32,6 +32,7 @@ public class ProfileAdapter extends ArrayAdapter {
     }
 
     @Override
+    // Retrieves layout and inflates view
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());

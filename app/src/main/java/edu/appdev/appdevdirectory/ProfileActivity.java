@@ -19,12 +19,11 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
-
-    private Button mBackButton;
+    // Declare member variables for TextViews and ImageView
     private TextView mName;
     private TextView mRole;
     private TextView mYear;
-    //private TextView mCell;
+    //private TextView mCell; No data in JSON file as of 3/21/2016
     private TextView mEmail;
     private TextView mGit;
     private TextView mTwitter;
@@ -32,6 +31,8 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView mLinkedIn;
 
     private ImageView mPic;
+
+    private View mLine;
 
 
     /**
@@ -44,15 +45,15 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.profileToolbar);
-        myToolbar.setTitle("");
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.profileToolbar); // Cast as toolbar
+        myToolbar.setTitle("AppDev Directory");
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //mBackButton = (Button) findViewById(R.id.backButton);
 
 
 
-        // Dynamic data
+        // Dynamic data insertion
         final HashMap<String, String> member = (HashMap) getIntent().getSerializableExtra("member");
         mName = (TextView) findViewById(R.id.profNameTextView);
         mRole = (TextView) findViewById(R.id.roleTextView);
@@ -65,13 +66,14 @@ public class ProfileActivity extends AppCompatActivity {
         mLinkedIn = (TextView) findViewById(R.id.linkedInTextView);
         mPic = (ImageView) findViewById(R.id.profImageView);
 
-
+        // Set text from ArrayList from JSON parsed data
         mName.setText(member.get("name"));
         mRole.setText(member.get("role"));
         mYear.setText(member.get("year"));
         //mCell.setText(member.get("cellphone"));
         mEmail.setText(member.get("email"));
         System.out.println(mTwitter.getText());
+        // Populates links fields if data present otherwise makes TextViews invisible
         if (member.get("twitterurl").equals("")) {
             mTwitter.setVisibility(View.GONE);
         } else {
@@ -121,6 +123,7 @@ public class ProfileActivity extends AppCompatActivity {
             mLinkedIn.setVisibility(View.VISIBLE);
         }
 
+        // Sets image as image from URL otherwise sets default as AppDev Logo from drawable resources
         String url = member.get("image");
             Picasso.with(getApplicationContext()).load(url).placeholder(R.drawable.appdevlogo).into(mPic);
 
@@ -130,6 +133,7 @@ public class ProfileActivity extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
     }
 
     @Override
