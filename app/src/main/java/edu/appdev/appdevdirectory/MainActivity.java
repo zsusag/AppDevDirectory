@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); // Set default layout
         Toolbar myToolbar = (Toolbar) findViewById(R.id.mainToolbar); // Cast as toolbar
         myToolbar.setTitle("AppDev Directory");
+        myToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(myToolbar);
+
 
         // JSON
         new DownloadFilesTask().execute();

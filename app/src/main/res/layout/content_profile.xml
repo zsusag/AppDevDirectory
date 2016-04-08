@@ -18,6 +18,7 @@
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:layout_above="@+id/profileImageView"
+        android:titleTextColor="#ffffff"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 

@@ -47,8 +47,10 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.profileToolbar); // Cast as toolbar
         myToolbar.setTitle("AppDev Directory");
+        myToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        myToolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white_24dp);
         //mBackButton = (Button) findViewById(R.id.backButton);
 
 
