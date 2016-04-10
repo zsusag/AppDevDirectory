@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // Set default layout
         Toolbar myToolbar = (Toolbar) findViewById(R.id.mainToolbar); // Cast as toolbar
-        myToolbar.setTitle("AppDev Directory");
+        myToolbar.setTitle(R.string.app_name);
         myToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(myToolbar);
 

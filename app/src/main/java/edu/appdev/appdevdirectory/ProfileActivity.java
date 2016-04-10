@@ -46,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.profileToolbar); // Cast as toolbar
-        myToolbar.setTitle("AppDev Directory");
+        myToolbar.setTitle(R.string.app_name);
         myToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
