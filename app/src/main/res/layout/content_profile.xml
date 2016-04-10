@@ -138,38 +138,36 @@
                 android:layout_marginBottom="10dp"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/gitTextView"
-                android:text="GitHub"
-                android:textSize="18dp"
-                android:layout_marginBottom="8dp"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/twitterTextView"
-                android:text="Twitter"
-                android:textSize="18dp"
-                android:layout_marginBottom="8dp"
-                android:clickable="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/twitterIcon"
+                    android:src="@drawable/twitter" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/homeTextView"
-                android:text="Personal Website"
-                android:textSize="18dp"
-                android:layout_marginBottom="8dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linkedinIcon"
+                    android:src="@drawable/linkedin" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/linkedInTextView"
-                android:text="LinkedIn"
-                android:textSize="18dp"
-                android:layout_marginBottom="8dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/githubIcon"
+                    android:src="@drawable/github" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/websiteIcon"
+                    android:src="@drawable/domain" />
+            </LinearLayout>
 
 
         </LinearLayout>

@@ -25,10 +25,10 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView mYear;
     //private TextView mCell; No data in JSON file as of 3/21/2016
     private TextView mEmail;
-    private TextView mGit;
-    private TextView mTwitter;
-    private TextView mHome;
-    private TextView mLinkedIn;
+    private ImageView mGit;
+    private ImageView mTwitter;
+    private ImageView mHome;
+    private ImageView mLinkedIn;
 
     private ImageView mPic;
 
@@ -62,10 +62,10 @@ public class ProfileActivity extends AppCompatActivity {
         mYear = (TextView) findViewById(R.id.yearTextView);
         //mCell = (TextView) findViewById(R.id.cellTextView);
         mEmail = (TextView) findViewById(R.id.emailTextView);
-        mTwitter = (TextView) findViewById(R.id.twitterTextView);
-        mGit = (TextView) findViewById(R.id.gitTextView);
-        mHome = (TextView) findViewById(R.id.homeTextView);
-        mLinkedIn = (TextView) findViewById(R.id.linkedInTextView);
+        mTwitter = (ImageView) findViewById(R.id.twitterIcon);
+        mGit = (ImageView) findViewById(R.id.githubIcon);
+        mHome = (ImageView) findViewById(R.id.websiteIcon);
+        mLinkedIn = (ImageView) findViewById(R.id.linkedinIcon);
         mPic = (ImageView) findViewById(R.id.profImageView);
 
         // Set text from ArrayList from JSON parsed data
@@ -74,7 +74,6 @@ public class ProfileActivity extends AppCompatActivity {
         mYear.setText(member.get("year"));
         //mCell.setText(member.get("cellphone"));
         mEmail.setText(member.get("email"));
-        System.out.println(mTwitter.getText());
         // Populates links fields if data present otherwise makes TextViews invisible
         if (member.get("twitterurl").equals("")) {
             mTwitter.setVisibility(View.GONE);
